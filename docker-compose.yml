@@ -4,19 +4,19 @@ services:
   backend:
     image: venkynagidi/backend:latest
     ports:
-      - "8085:80"
+      - "3000:3000"
     networks:
-      - frontend-network
       - backend-network
+      - frontend-network
    
   
   frontend:
     image: venkynagidi/frontend:latest
     ports:
-      - "3000:3000"
+      - "8085:80"
     networks:
-      - backend-network
       - frontend-network
+      - backend-network
    
       
 networks:
