@@ -1,15 +1,26 @@
+---
 version: '3'
 services:
   backend:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
+    image: venkynagidi/backend:latest
     ports:
-      - '5050:5050'
-
+      - "8085:80"
+    networks:
+      - frontend-network
+      - backend-network
+   
+  
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: venkynagidi/frontend:latest
     ports:
-      - '3000:3000'
+      - "3000:3000"
+    networks:
+      - backend-network
+      - frontend-network
+   
+      
+networks:
+  frontend-network:
+    driver: bridge
+  backend-network:
+    driver: bridge
