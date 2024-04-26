@@ -5,7 +5,7 @@ RUN yarn add copyfiles
 RUN yarn install
 COPY . .
 RUN yarn build
-EXPOSE 3000
+EXPOSE 3002
 
 RUN ["chmod", "+x", "./entrypoint.sh"]
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]
