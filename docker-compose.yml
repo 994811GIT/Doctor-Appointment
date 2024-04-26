@@ -11,24 +11,25 @@ services:
       - loadbalancing
    
   
-  # frontend:
-  #   image: venkynagidi/frontend:latest
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - loadbalancing
-  #   depends_on:
-  #     - backend
-  
-  nginx:
-    build: /var/lib/jenkins/workspace/project2/nginx
-    container_name: nginx
+  frontend:
+    image: venkynagidi/frontend:latest
     ports:
-      - "80:80"
+      - "8085:80"
     networks:
       - loadbalancing
     depends_on:
       - backend
+  
+  # nginx:
+  #   build: /var/lib/jenkins/workspace/project2/nginx
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - loadbalancing
+  #   depends_on:
+  #     - backend
      
 networks:
   loadbalancing:
+    driver: bridge
