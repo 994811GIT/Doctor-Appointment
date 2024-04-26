@@ -11,24 +11,24 @@ services:
       - loadbalancing
    
   
-  # frontend:
-  #   image: venkynagidi/frontend:latest
-  #   ports:
-  #     - "8085:80"
-  #   networks:
-  #     - loadbalancing
-  #   depends_on:
-  #     - backend
-  
-  nginx:
-    build: ./nginx
-    container_name: nginx
+  frontend:
+    image: venkynagidi/frontend:latest
     ports:
-      - "80:80"
+      - "8085:80"
     networks:
       - loadbalancing
     depends_on:
       - backend
+  
+  # nginx:
+  #   build: ./nginx
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - loadbalancing
+  #   depends_on:
+  #     - backend
      
 networks:
   loadbalancing:
