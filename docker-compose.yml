@@ -4,30 +4,31 @@ services:
   backend:
     image: venkynagidi/backend:latest
     environment:
-      - PORT=3001
+      - PORT=3000
     deploy:
       replicas: 4
     networks:
       - loadbalancing
    
   
-  frontend:
-    image: venkynagidi/frontend:latest
+  # frontend:
+  #   image: venkynagidi/frontend:latest
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - loadbalancing
+  #   depends_on:
+  #     - backend
+  
+  nginx:
+    build: ../nginx
+    container_name: nginx
     ports:
-      - "3000:3000"
+      - "80:80"
     networks:
       - loadbalancing
     depends_on:
       - backend
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-      - "443:443"
-   volumes:
-     - " .nginx.conf /etc/nginx/conf.d"
-
      
-      
 networks:
   loadbalancing:
