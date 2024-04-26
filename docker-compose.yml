@@ -5,9 +5,10 @@ services:
     image: venkynagidi/backend:latest
     ports:
       - "3000:3000"
+    deploy:
+      replicas: 4
     networks:
-      - backend-network
-      - frontend-network
+      - loadbalancing
    
   
   frontend:
@@ -15,12 +16,10 @@ services:
     ports:
       - "8085:80"
     networks:
-      - frontend-network
-      - backend-network
+      - loadbalancing
+    depends_on:
+      - backend
    
       
 networks:
-  frontend-network:
-    driver: bridge
-  backend-network:
-    driver: bridge
+  loadbalancing:
