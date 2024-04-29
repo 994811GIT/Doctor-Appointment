@@ -1,4 +1,4 @@
-frontend/Dockerfile
+#frontend/Dockerfile
 # Step 1: Build the Node.js application
 FROM node:20-alpine as builder
 WORKDIR /app
