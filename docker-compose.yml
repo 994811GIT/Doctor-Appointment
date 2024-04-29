@@ -20,16 +20,7 @@ services:
     depends_on:
       - backend
   
-  # nginx:
-  #   build: ./nginx
-  #   container_name: nginx
-  #   ports:
-  #     - "80:80"
-  #   networks:
-  #     - loadbalancing
-  #   depends_on:
-  #     - backend
-     
+  
 networks:
   loadbalancing:
     driver: bridge
