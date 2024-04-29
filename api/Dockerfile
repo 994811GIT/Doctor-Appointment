@@ -7,5 +7,7 @@ COPY . .
 RUN yarn build
 EXPOSE 3000
 
-RUN ["chmod", "+x", "./entrypoint.sh"]
-ENTRYPOINT [ "sh", "./entrypoint.sh" ]
+CMD ["node","start"]
+
+# RUN ["chmod", "+x", "./entrypoint.sh"]
+# ENTRYPOINT [ "sh", "./entrypoint.sh" ]
