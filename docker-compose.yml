@@ -8,7 +8,7 @@ services:
     deploy:
       replicas: 4
     networks:
-      - loadbalancing
+      - "loadbalancing"
    
   
   frontend:
@@ -16,7 +16,7 @@ services:
     ports:
       - "8085:80"
     networks:
-      - loadbalancing
+      - "loadbalancing"
     depends_on:
       - backend
   
