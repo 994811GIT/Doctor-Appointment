@@ -14,7 +14,7 @@ services:
   frontend:
     image: venkynagidi/frontend:latest
     ports:
-      - "8085:80"
+      - "8089:80"
     networks:
       - "loadbalancing"
     depends_on:
