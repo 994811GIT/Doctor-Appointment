@@ -1,24 +1,26 @@
 ---
 version: '3.8'
 services:
-  frontend:
-    image: venkynagidi/frontendimage:one
-    ports:
-      - "8081:80"
-    networks:
-      - frontend-network
-      - backend-network
-
   backend:
-    image: venkynagidi/backendimage:one
-    ports:
-      - "3000:3000"
+    image: venkynagidi/backend:latest
+    environment:
+      - PORT=3000
+    deploy:
+      replicas: 4
     networks:
-      - backend-network
-      - frontend-network
-
+      - "loadbalancing"
+   
+  
+  frontend:
+    image: venkynagidi/frontend:latest
+    ports:
+      - "8089:80"
+    networks:
+      - "loadbalancing"
+    depends_on:
+      - backend
+  
+  
 networks:
-  frontend-network:
-    driver: bridge
-  backend-network:
+  loadbalancing:
     driver: bridge
