@@ -17,7 +17,7 @@ RUN rm -rf ./*
 COPY --from=builder /app/build .
 
 # Replace the default Nginx configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80 to the outside
 EXPOSE 80
