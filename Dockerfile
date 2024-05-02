@@ -10,7 +10,7 @@ RUN npm install
 RUN npm run build
 
 # Deploy Stage
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 WORKDIR /usr/share/nginx/html
 
