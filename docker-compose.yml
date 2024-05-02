@@ -4,7 +4,7 @@ services:
   frontend:
     image: venkynagidi/frontendimage:one
     ports:
-      - "8080:80"
+      - "80:80"
     restart: always
     depends_on:
       - backend
